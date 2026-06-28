@@ -1,4 +1,5 @@
 node_modules
+.next
 .DS_Store
 dist
 dist-ssr
@@ -11,3 +12,4 @@ dist-ssr
 .vinxi
 __unconfig*
 todos.json
+/codex-showcase-export/

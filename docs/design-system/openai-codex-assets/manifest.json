@@ -1,0 +1,594 @@
+{
+  "assets": [
+    {
+      "contentType": "image/svg+xml",
+      "id": "91eb7ddba096c5d1",
+      "kind": "image",
+      "name": "cisco.svg",
+      "path": "docs/design-system/openai-codex-assets/91eb7ddba096c5d1.svg",
+      "url": "https://images.ctfassets.net/kftzwdyauwt9/54kFzrl88P2yFEw5gKiYdf/613b826eddf7bc528519ded194c47346/cisco.svg?w=320&q=90"
+    },
+    {
+      "contentType": "image/svg+xml",
+      "id": "cc2da1fc932ff027",
+      "kind": "image",
+      "name": "miro.svg",
+      "path": "docs/design-system/openai-codex-assets/cc2da1fc932ff027.svg",
+      "url": "https://images.ctfassets.net/kftzwdyauwt9/tWk0RzzLwICa6aE9jZNt3/b07d869359c37cfd05d3bdaee4432315/miro.svg?w=320&q=90"
+    },
+    {
+      "contentType": "image/svg+xml",
+      "id": "c7f9d94b73ccee66",
+      "kind": "image",
+      "name": "duolingo.svg",
+      "path": "docs/design-system/openai-codex-assets/c7f9d94b73ccee66.svg",
+      "url": "https://images.ctfassets.net/kftzwdyauwt9/6m3XjCPDMRRWAYr7wZUfTY/675c482e545a070e38b480b943dde776/duolingo.svg?w=320&q=90"
+    },
+    {
+      "contentType": "image/svg+xml",
+      "id": "dfa3275e6f44a90e",
+      "kind": "image",
+      "name": "rakuten.svg",
+      "path": "docs/design-system/openai-codex-assets/dfa3275e6f44a90e.svg",
+      "url": "https://images.ctfassets.net/kftzwdyauwt9/2LmNKPNtGWWBSwOXM7xKId/f1f3cbd179cdad9344a6561056b54c6f/rakuten.svg?w=320&q=90"
+    },
+    {
+      "contentType": "image/svg+xml",
+      "id": "d2a2353e45cb0112",
+      "kind": "image",
+      "name": "whoop.svg",
+      "path": "docs/design-system/openai-codex-assets/d2a2353e45cb0112.svg",
+      "url": "https://images.ctfassets.net/kftzwdyauwt9/2UkTN8UHIV9U0e9sY4VY2I/b0d4bbf2a9721868d2a78b8feed9e082/whoop.svg?w=320&q=90"
+    },
+    {
+      "contentType": "image/svg+xml",
+      "id": "4187742838cea18f",
+      "kind": "image",
+      "name": "instacart.svg",
+      "path": "docs/design-system/openai-codex-assets/4187742838cea18f.svg",
+      "url": "https://images.ctfassets.net/kftzwdyauwt9/32UwaEm8OXMkFtaBJF2L4T/e6c9e4ae94da3388c671cce71a271cf6/instacart.svg?w=320&q=90"
+    },
+    {
+      "contentType": "image/svg+xml",
+      "id": "7bf92d11ea2a2b5f",
+      "kind": "image",
+      "name": "vanta.svg",
+      "path": "docs/design-system/openai-codex-assets/7bf92d11ea2a2b5f.svg",
+      "url": "https://images.ctfassets.net/kftzwdyauwt9/2JbO5BG5Oi3G4bvaB6R1hl/c016a471bc1faabfd921e03d4ee8f96e/vanta.svg?w=320&q=90"
+    },
+    {
+      "contentType": "image/svg+xml",
+      "id": "48097d785d841948",
+      "kind": "image",
+      "name": "virgin-atlantic.svg",
+      "path": "docs/design-system/openai-codex-assets/48097d785d841948.svg",
+      "url": "https://images.ctfassets.net/kftzwdyauwt9/2QKvDwjq1hU0H2NcxBuXs6/3c4c1cf4a68cab40f561901ceb4c7f27/virgin-atlantic.svg?w=320&q=90"
+    },
+    {
+      "contentType": "image/webp",
+      "id": "6782dbc82291deb5",
+      "kind": "image",
+      "name": "tablet_m_feature02_dark.png",
+      "path": "docs/design-system/openai-codex-assets/6782dbc82291deb5.png",
+      "url": "https://images.ctfassets.net/kftzwdyauwt9/58LAmfaXVzhUXrn3cAeTKC/3ab53bc239b311513cac8971ee1b7537/tablet_m_feature02_dark.png?w=1920&q=80&fm=webp"
+    },
+    {
+      "contentType": "image/webp",
+      "id": "d648dd224f58a62d",
+      "kind": "image",
+      "name": "tablet_m_feature01_dark.png",
+      "path": "docs/design-system/openai-codex-assets/d648dd224f58a62d.png",
+      "url": "https://images.ctfassets.net/kftzwdyauwt9/4hEqrZC5eiz7JdeUgZKg0z/93b147f13041fa6feebbae2ca8534cfb/tablet_m_feature01_dark.png?w=1920&q=80&fm=webp"
+    },
+    {
+      "contentType": "image/webp",
+      "id": "fb32087d1d03a388",
+      "kind": "image",
+      "name": "tablet_m_feature03_dark.png",
+      "path": "docs/design-system/openai-codex-assets/fb32087d1d03a388.png",
+      "url": "https://images.ctfassets.net/kftzwdyauwt9/aLUB0iVxg5WKbx0WC9sfH/0ca58e0b59cebc72714728601431dfa6/tablet_m_feature03_dark.png?w=1920&q=80&fm=webp"
+    },
+    {
+      "contentType": "image/webp",
+      "id": "efc089faf3f5f273",
+      "kind": "image",
+      "name": "tablet_m_hero_dark__3_.png",
+      "path": "docs/design-system/openai-codex-assets/efc089faf3f5f273.png",
+      "url": "https://images.ctfassets.net/kftzwdyauwt9/6fhVzTDLf4b0tTvinYmopC/513ebcedcac6ef4c67d667e74df7a200/tablet_m_hero_dark__3_.png?w=1920&q=80&fm=webp"
+    },
+    {
+      "contentType": "image/webp",
+      "id": "7f41bed38ccf3755",
+      "kind": "image",
+      "name": "codex-app.png.png",
+      "path": "docs/design-system/openai-codex-assets/7f41bed38ccf3755.png",
+      "url": "https://images.ctfassets.net/kftzwdyauwt9/YgXvGzKvVcDvpJGOFyroe/777616dd860276400c9c955688dce373/codex-app.png.png?w=270&q=100&fm=webp"
+    },
+    {
+      "contentType": "image/svg+xml",
+      "id": "bacf9d895299834c",
+      "kind": "image",
+      "name": "favicon.svg",
+      "path": "docs/design-system/openai-codex-assets/bacf9d895299834c.svg",
+      "url": "https://openai.com/favicon.svg"
+    },
+    {
+      "contentType": "image/webp",
+      "id": "6c2904a6ce191954",
+      "kind": "image",
+      "name": "tablet_m_feature04_dark.png",
+      "path": "docs/design-system/openai-codex-assets/6c2904a6ce191954.png",
+      "url": "https://images.ctfassets.net/kftzwdyauwt9/RgwgAFujAEgvhtvxzakIc/ec414ddb06ab475c8002dcf64a09c1a3/tablet_m_feature04_dark.png?w=1920&q=80&fm=webp"
+    },
+    {
+      "contentType": "image/webp",
+      "id": "1a851fdb4eff1b3c",
+      "kind": "image",
+      "name": "tablet_m_feature05_dark.png",
+      "path": "docs/design-system/openai-codex-assets/1a851fdb4eff1b3c.png",
+      "url": "https://images.ctfassets.net/kftzwdyauwt9/4JmnTMS1tAPBaf5SyGjezq/581bfd5dc2e833d378166c0e869d1f6d/tablet_m_feature05_dark.png?w=1920&q=80&fm=webp"
+    },
+    {
+      "contentType": "image/webp",
+      "id": "586dc9382f7716fc",
+      "kind": "image",
+      "name": "App-darkmode__1_.png",
+      "path": "docs/design-system/openai-codex-assets/586dc9382f7716fc.png",
+      "url": "https://images.ctfassets.net/kftzwdyauwt9/7FJs3dz87hHIMNmTiPhlKR/743097e51cc4c6b980ee450a880aa722/App-darkmode__1_.png?w=1920&q=80&fm=webp"
+    },
+    {
+      "contentType": "image/webp",
+      "id": "7753e5f06ca79b29",
+      "kind": "image",
+      "name": "Terminal-darkmode.png",
+      "path": "docs/design-system/openai-codex-assets/7753e5f06ca79b29.png",
+      "url": "https://images.ctfassets.net/kftzwdyauwt9/2EgJ6UlRJkSsFOx7KDHMar/2a3bab2c6c843398dd5f997483885a65/Terminal-darkmode.png?w=1920&q=80&fm=webp"
+    },
+    {
+      "contentType": "image/webp",
+      "id": "2c68c3fb0a236ca8",
+      "kind": "image",
+      "name": "Editor-darkmode.png",
+      "path": "docs/design-system/openai-codex-assets/2c68c3fb0a236ca8.png",
+      "url": "https://images.ctfassets.net/kftzwdyauwt9/5wgUCBbgbEAVjHx0Sdg2YP/7b72875f6c20e685e486c34c9af34e74/Editor-darkmode.png?w=1920&q=80&fm=webp"
+    },
+    {
+      "contentType": "image/webp",
+      "id": "43609baff115ea58",
+      "kind": "image",
+      "name": "Codex-app-Layout-Testimonials-daniel-sikorskiy-1.png",
+      "path": "docs/design-system/openai-codex-assets/43609baff115ea58.png",
+      "url": "https://images.ctfassets.net/kftzwdyauwt9/1GFLuNGjnu9RWNWL4xTaI0/65a75fa223c01da3646ab2aff11e906a/Codex-app-Layout-Testimonials-daniel-sikorskiy-1.png?w=128&q=90&fm=webp"
+    },
+    {
+      "contentType": "image/webp",
+      "id": "1a1e7729f98e35e8",
+      "kind": "image",
+      "name": "joey-wang.png",
+      "path": "docs/design-system/openai-codex-assets/1a1e7729f98e35e8.png",
+      "url": "https://images.ctfassets.net/kftzwdyauwt9/5I9rXTLxBY7HwMoQm4zjIq/416abdc245bbf2cf40c83806ab1c4ced/joey-wang.png?w=128&q=90&fm=webp"
+    },
+    {
+      "contentType": "image/webp",
+      "id": "4bf299fbc92b4b1e",
+      "kind": "image",
+      "name": "Codex-app-Layout-Testimonials-tess-rosania-1.png",
+      "path": "docs/design-system/openai-codex-assets/4bf299fbc92b4b1e.png",
+      "url": "https://images.ctfassets.net/kftzwdyauwt9/1GqZNg7ZX1hldE5dt9UQZO/22662a1c54e773b5e410c51df7cc119f/Codex-app-Layout-Testimonials-tess-rosania-1.png?w=128&q=90&fm=webp"
+    },
+    {
+      "contentType": "image/webp",
+      "id": "fb1cc27912e0eb6c",
+      "kind": "image",
+      "name": "Codex-app-Layout-Testimonials-austin-ray-1.png",
+      "path": "docs/design-system/openai-codex-assets/fb1cc27912e0eb6c.png",
+      "url": "https://images.ctfassets.net/kftzwdyauwt9/62hQZTVjtcJPYtlYf7Osp4/fc127049a77d72db6f64fe18683040eb/Codex-app-Layout-Testimonials-austin-ray-1.png?w=128&q=90&fm=webp"
+    },
+    {
+      "contentType": "image/webp",
+      "id": "37ad13eaff83341d",
+      "kind": "image",
+      "name": "aaron-wang.png",
+      "path": "docs/design-system/openai-codex-assets/37ad13eaff83341d.png",
+      "url": "https://images.ctfassets.net/kftzwdyauwt9/bA7sdl3VZmLArdFoOLERy/0deeb281855fca24b117cf67ac19071a/aaron-wang.png?w=128&q=90&fm=webp"
+    },
+    {
+      "contentType": "image/webp",
+      "id": "ebd04b5e07b1b01c",
+      "kind": "image",
+      "name": "Codex-app-Layout-Testimonials-tres-wong-godfrey-1.png",
+      "path": "docs/design-system/openai-codex-assets/ebd04b5e07b1b01c.png",
+      "url": "https://images.ctfassets.net/kftzwdyauwt9/4GxxNGOL62Sc3OpAvOEWZX/437879dede380bd79ab352a9e28eccfa/Codex-app-Layout-Testimonials-tres-wong-godfrey-1.png?w=128&q=90&fm=webp"
+    },
+    {
+      "contentType": "image/svg+xml",
+      "id": "e27fabafe0390368",
+      "kind": "image",
+      "name": "svg-1",
+      "path": "docs/design-system/openai-codex-assets/e27fabafe0390368.svg",
+      "url": "inline-svg:e27fabafe0390368"
+    },
+    {
+      "contentType": "image/svg+xml",
+      "id": "28c297f74ff764df",
+      "kind": "image",
+      "name": "svg-2",
+      "path": "docs/design-system/openai-codex-assets/28c297f74ff764df.svg",
+      "url": "inline-svg:28c297f74ff764df"
+    },
+    {
+      "contentType": "image/svg+xml",
+      "id": "2c43e145e6be28fa",
+      "kind": "image",
+      "name": "svg-3",
+      "path": "docs/design-system/openai-codex-assets/2c43e145e6be28fa.svg",
+      "url": "inline-svg:2c43e145e6be28fa"
+    },
+    {
+      "contentType": "image/svg+xml",
+      "id": "df99862f4b8e88c9",
+      "kind": "image",
+      "name": "svg-4",
+      "path": "docs/design-system/openai-codex-assets/df99862f4b8e88c9.svg",
+      "url": "inline-svg:df99862f4b8e88c9"
+    },
+    {
+      "contentType": "image/svg+xml",
+      "id": "da51a85a824c1613",
+      "kind": "image",
+      "name": "svg-5",
+      "path": "docs/design-system/openai-codex-assets/da51a85a824c1613.svg",
+      "url": "inline-svg:da51a85a824c1613"
+    },
+    {
+      "contentType": "image/svg+xml",
+      "id": "c5bfc20493fbeefc",
+      "kind": "image",
+      "name": "svg-6",
+      "path": "docs/design-system/openai-codex-assets/c5bfc20493fbeefc.svg",
+      "url": "inline-svg:c5bfc20493fbeefc"
+    },
+    {
+      "contentType": "image/svg+xml",
+      "id": "43e9d74ae54ab94b",
+      "kind": "image",
+      "name": "svg-7",
+      "path": "docs/design-system/openai-codex-assets/43e9d74ae54ab94b.svg",
+      "url": "inline-svg:43e9d74ae54ab94b"
+    },
+    {
+      "contentType": "image/svg+xml",
+      "id": "cc2ea0d37a32a7ad",
+      "kind": "image",
+      "name": "svg-8",
+      "path": "docs/design-system/openai-codex-assets/cc2ea0d37a32a7ad.svg",
+      "url": "inline-svg:cc2ea0d37a32a7ad"
+    },
+    {
+      "contentType": "image/svg+xml",
+      "id": "2d91468d1c8f8d83",
+      "kind": "image",
+      "name": "svg-9",
+      "path": "docs/design-system/openai-codex-assets/2d91468d1c8f8d83.svg",
+      "url": "inline-svg:2d91468d1c8f8d83"
+    },
+    {
+      "contentType": "image/svg+xml",
+      "id": "aee29b3d7bbc1f33",
+      "kind": "image",
+      "name": "svg-10",
+      "path": "docs/design-system/openai-codex-assets/aee29b3d7bbc1f33.svg",
+      "url": "inline-svg:aee29b3d7bbc1f33"
+    },
+    {
+      "contentType": "image/svg+xml",
+      "id": "2383cd6a2af04237",
+      "kind": "image",
+      "name": "svg-11",
+      "path": "docs/design-system/openai-codex-assets/2383cd6a2af04237.svg",
+      "url": "inline-svg:2383cd6a2af04237"
+    },
+    {
+      "contentType": "image/svg+xml",
+      "id": "be3f6ee146d0c2ea",
+      "kind": "image",
+      "name": "svg-12",
+      "path": "docs/design-system/openai-codex-assets/be3f6ee146d0c2ea.svg",
+      "url": "inline-svg:be3f6ee146d0c2ea"
+    },
+    {
+      "contentType": "image/svg+xml",
+      "id": "9709062c23c43521",
+      "kind": "image",
+      "name": "svg-13",
+      "path": "docs/design-system/openai-codex-assets/9709062c23c43521.svg",
+      "url": "inline-svg:9709062c23c43521"
+    },
+    {
+      "contentType": "image/svg+xml",
+      "id": "db3b288acc291230",
+      "kind": "image",
+      "name": "svg-14",
+      "path": "docs/design-system/openai-codex-assets/db3b288acc291230.svg",
+      "url": "inline-svg:db3b288acc291230"
+    },
+    {
+      "contentType": "image/svg+xml",
+      "id": "1ac39b4730a769e2",
+      "kind": "image",
+      "name": "svg-15",
+      "path": "docs/design-system/openai-codex-assets/1ac39b4730a769e2.svg",
+      "url": "inline-svg:1ac39b4730a769e2"
+    },
+    {
+      "contentType": "image/svg+xml",
+      "id": "c3e83762b15cc324",
+      "kind": "image",
+      "name": "svg-16",
+      "path": "docs/design-system/openai-codex-assets/c3e83762b15cc324.svg",
+      "url": "inline-svg:c3e83762b15cc324"
+    },
+    {
+      "contentType": "image/svg+xml",
+      "id": "ee4cae8aea5f6379",
+      "kind": "image",
+      "name": "svg-17",
+      "path": "docs/design-system/openai-codex-assets/ee4cae8aea5f6379.svg",
+      "url": "inline-svg:ee4cae8aea5f6379"
+    },
+    {
+      "contentType": "image/svg+xml",
+      "id": "c9246efe5e14473a",
+      "kind": "image",
+      "name": "svg-18",
+      "path": "docs/design-system/openai-codex-assets/c9246efe5e14473a.svg",
+      "url": "inline-svg:c9246efe5e14473a"
+    },
+    {
+      "contentType": "image/svg+xml",
+      "id": "373254a1364fb6f1",
+      "kind": "image",
+      "name": "svg-19",
+      "path": "docs/design-system/openai-codex-assets/373254a1364fb6f1.svg",
+      "url": "inline-svg:373254a1364fb6f1"
+    },
+    {
+      "contentType": "image/svg+xml",
+      "id": "062ecce194ee4cd3",
+      "kind": "image",
+      "name": "svg-20",
+      "path": "docs/design-system/openai-codex-assets/062ecce194ee4cd3.svg",
+      "url": "inline-svg:062ecce194ee4cd3"
+    },
+    {
+      "contentType": "image/svg+xml",
+      "id": "2f3b7418984d84a3",
+      "kind": "image",
+      "name": "svg-21",
+      "path": "docs/design-system/openai-codex-assets/2f3b7418984d84a3.svg",
+      "url": "inline-svg:2f3b7418984d84a3"
+    },
+    {
+      "contentType": "image/svg+xml",
+      "id": "9a65336b222d2f7c",
+      "kind": "image",
+      "name": "svg-22",
+      "path": "docs/design-system/openai-codex-assets/9a65336b222d2f7c.svg",
+      "url": "inline-svg:9a65336b222d2f7c"
+    },
+    {
+      "contentType": "image/svg+xml",
+      "id": "91c9893864839ef5",
+      "kind": "image",
+      "name": "svg-23",
+      "path": "docs/design-system/openai-codex-assets/91c9893864839ef5.svg",
+      "url": "inline-svg:91c9893864839ef5"
+    },
+    {
+      "contentType": "image/svg+xml",
+      "id": "18d880e4d368d761",
+      "kind": "image",
+      "name": "svg-24",
+      "path": "docs/design-system/openai-codex-assets/18d880e4d368d761.svg",
+      "url": "inline-svg:18d880e4d368d761"
+    },
+    {
+      "contentType": "image/svg+xml",
+      "id": "ae845449ba3a0d45",
+      "kind": "image",
+      "name": "svg-25",
+      "path": "docs/design-system/openai-codex-assets/ae845449ba3a0d45.svg",
+      "url": "inline-svg:ae845449ba3a0d45"
+    },
+    {
+      "contentType": "image/svg+xml",
+      "id": "d9cc1e6e3a0ddc7e",
+      "kind": "image",
+      "name": "svg-26",
+      "path": "docs/design-system/openai-codex-assets/d9cc1e6e3a0ddc7e.svg",
+      "url": "inline-svg:d9cc1e6e3a0ddc7e"
+    },
+    {
+      "contentType": "image/svg+xml",
+      "id": "2360490d192ff468",
+      "kind": "image",
+      "name": "svg-27",
+      "path": "docs/design-system/openai-codex-assets/2360490d192ff468.svg",
+      "url": "inline-svg:2360490d192ff468"
+    },
+    {
+      "contentType": "image/svg+xml",
+      "id": "0b07eeec42dd36fc",
+      "kind": "image",
+      "name": "svg-28",
+      "path": "docs/design-system/openai-codex-assets/0b07eeec42dd36fc.svg",
+      "url": "inline-svg:0b07eeec42dd36fc"
+    },
+    {
+      "contentType": "image/svg+xml",
+      "id": "9e7de5843d9d34ab",
+      "kind": "image",
+      "name": "svg-29",
+      "path": "docs/design-system/openai-codex-assets/9e7de5843d9d34ab.svg",
+      "url": "inline-svg:9e7de5843d9d34ab"
+    },
+    {
+      "contentType": "image/svg+xml",
+      "id": "a525510d0118d71e",
+      "kind": "image",
+      "name": "svg-30",
+      "path": "docs/design-system/openai-codex-assets/a525510d0118d71e.svg",
+      "url": "inline-svg:a525510d0118d71e"
+    },
+    {
+      "contentType": "image/svg+xml",
+      "id": "4ea2397c5400797b",
+      "kind": "image",
+      "name": "svg-31",
+      "path": "docs/design-system/openai-codex-assets/4ea2397c5400797b.svg",
+      "url": "inline-svg:4ea2397c5400797b"
+    },
+    {
+      "contentType": "image/svg+xml",
+      "id": "d7dd8bba315a46b5",
+      "kind": "image",
+      "name": "svg-32",
+      "path": "docs/design-system/openai-codex-assets/d7dd8bba315a46b5.svg",
+      "url": "inline-svg:d7dd8bba315a46b5"
+    },
+    {
+      "contentType": "image/svg+xml",
+      "id": "421a1024345f4ffc",
+      "kind": "image",
+      "name": "svg-33",
+      "path": "docs/design-system/openai-codex-assets/421a1024345f4ffc.svg",
+      "url": "inline-svg:421a1024345f4ffc"
+    },
+    {
+      "contentType": "image/svg+xml",
+      "id": "26a6a76b5e10733a",
+      "kind": "image",
+      "name": "svg-34",
+      "path": "docs/design-system/openai-codex-assets/26a6a76b5e10733a.svg",
+      "url": "inline-svg:26a6a76b5e10733a"
+    },
+    {
+      "contentType": "image/svg+xml",
+      "id": "c3d7b379e7da1ab8",
+      "kind": "image",
+      "name": "svg-35",
+      "path": "docs/design-system/openai-codex-assets/c3d7b379e7da1ab8.svg",
+      "url": "inline-svg:c3d7b379e7da1ab8"
+    },
+    {
+      "contentType": "image/svg+xml",
+      "id": "85a805eeade7c2c0",
+      "kind": "image",
+      "name": "svg-36",
+      "path": "docs/design-system/openai-codex-assets/85a805eeade7c2c0.svg",
+      "url": "inline-svg:85a805eeade7c2c0"
+    },
+    {
+      "contentType": "image/svg+xml",
+      "id": "982d24255733b9a3",
+      "kind": "image",
+      "name": "svg-37",
+      "path": "docs/design-system/openai-codex-assets/982d24255733b9a3.svg",
+      "url": "inline-svg:982d24255733b9a3"
+    },
+    {
+      "contentType": "image/svg+xml",
+      "id": "3d9df3f880eff822",
+      "kind": "image",
+      "name": "svg-38",
+      "path": "docs/design-system/openai-codex-assets/3d9df3f880eff822.svg",
+      "url": "inline-svg:3d9df3f880eff822"
+    }
+  ],
+  "failures": [
+    {
+      "contentType": null,
+      "id": "2492a9ad5187d51b",
+      "name": "OpenAISans-Medium.woff2",
+      "reason": "Loaded resource fetch failed: Asset bundling failed; page fetch failed: Browser Use encountered an error interacting with this webpage: TypeError: Failed to fetch\n    at s (https://openai.com/_next/static/chunks/0h.l_ibqa8akq.js?dpl=dpl_ih8CWneyTvq8goZYoY6HKhVgyH8a:1:14509)\n    at u7 (<anonymous>:1:41)\n    at <anonymous>:1:354",
+      "url": "https://cdn.openai.com/common/fonts/openai-sans/v4/OpenAISans-Medium.woff2"
+    },
+    {
+      "contentType": null,
+      "id": "ee4c2bbea821cbb7",
+      "name": "OpenAISans-Regular.woff2",
+      "reason": "Loaded resource fetch failed: Asset bundling failed; page fetch failed: Browser Use encountered an error interacting with this webpage: TypeError: Failed to fetch\n    at s (https://openai.com/_next/static/chunks/0h.l_ibqa8akq.js?dpl=dpl_ih8CWneyTvq8goZYoY6HKhVgyH8a:1:14509)\n    at u7 (<anonymous>:1:41)\n    at <anonymous>:1:354",
+      "url": "https://cdn.openai.com/common/fonts/openai-sans/v4/OpenAISans-Regular.woff2"
+    },
+    {
+      "contentType": null,
+      "id": "4d3fbc87cfc9d025",
+      "name": "0",
+      "reason": "Asset response type missing is not valid for image",
+      "url": "https://bat.bing.com/action/0?ti=187204252&Ver=2&mid=fda7f3a2-4599-43c6-911a-0bf58862a181&bo=1&sid=f2f9a62071de11f1bf9af174ed122fee&vid=f2f9ca3071de11f19635e1998788088e&vids=1&msclkid=N&pi=918639831&lg=en-GB&sw=1728&sh=1117&sc=30&tl=Codex%20%7C%20AI%20Coding%20Partner%20from%20OpenAI%20%7C%20OpenAI&p=https%3A%2F%2Fopenai.com%2Fcodex%2F&r=https%3A%2F%2Fwww.google.com%2F&lt=735&evt=pageLoad&sv=2&cdb=AQAQ&rn=910023"
+    },
+    {
+      "contentType": null,
+      "id": "8885eb24ad75c10a",
+      "name": "m_feature01_dark.png",
+      "reason": "Loaded resource fetch failed: Asset bundling failed; page fetch failed: Browser Use encountered an error interacting with this webpage: TypeError: Failed to fetch\n    at s (https://openai.com/_next/static/chunks/0h.l_ibqa8akq.js?dpl=dpl_ih8CWneyTvq8goZYoY6HKhVgyH8a:1:14509)\n    at u7 (<anonymous>:1:41)\n    at <anonymous>:1:354",
+      "url": "https://images.ctfassets.net/kftzwdyauwt9/otnACMcyAsjgyrXJWjkXv/814fafb7adb513ce130b91b197ddaca2/m_feature01_dark.png?w=640&q=70&fm=webp"
+    },
+    {
+      "contentType": null,
+      "id": "543b345aee653feb",
+      "name": "m_feature02_dark.png",
+      "reason": "Loaded resource fetch failed: Asset bundling failed; page fetch failed: Browser Use encountered an error interacting with this webpage: TypeError: Failed to fetch\n    at s (https://openai.com/_next/static/chunks/0h.l_ibqa8akq.js?dpl=dpl_ih8CWneyTvq8goZYoY6HKhVgyH8a:1:14509)\n    at u7 (<anonymous>:1:41)\n    at <anonymous>:1:354",
+      "url": "https://images.ctfassets.net/kftzwdyauwt9/44nFeOc4qzGVQmteDH4OZi/262f01f800ef87d00fbb78e992c6383a/m_feature02_dark.png?w=640&q=70&fm=webp"
+    },
+    {
+      "contentType": null,
+      "id": "d4b05d706640e9ea",
+      "name": "m_feature03_dark.png",
+      "reason": "Loaded resource fetch failed: Asset bundling failed; page fetch failed: Browser Use encountered an error interacting with this webpage: TypeError: Failed to fetch\n    at s (https://openai.com/_next/static/chunks/0h.l_ibqa8akq.js?dpl=dpl_ih8CWneyTvq8goZYoY6HKhVgyH8a:1:14509)\n    at u7 (<anonymous>:1:41)\n    at <anonymous>:1:354",
+      "url": "https://images.ctfassets.net/kftzwdyauwt9/14zeQa2cohkg21I5C7lPN3/bb15ee8c4b83d7c2c1eafa0e90abe2db/m_feature03_dark.png?w=640&q=70&fm=webp"
+    },
+    {
+      "contentType": null,
+      "id": "e2e358df4a99f4ae",
+      "name": "m_feature04_dark.png",
+      "reason": "Loaded resource fetch failed: Asset bundling failed; page fetch failed: Browser Use encountered an error interacting with this webpage: TypeError: Failed to fetch\n    at s (https://openai.com/_next/static/chunks/0h.l_ibqa8akq.js?dpl=dpl_ih8CWneyTvq8goZYoY6HKhVgyH8a:1:14509)\n    at u7 (<anonymous>:1:41)\n    at <anonymous>:1:354",
+      "url": "https://images.ctfassets.net/kftzwdyauwt9/2Lhl0quLlP4huoVVOOHr83/35c12475889e189af3f7e60fb204dc48/m_feature04_dark.png?w=640&q=70&fm=webp"
+    },
+    {
+      "contentType": null,
+      "id": "b3380af3883d5e24",
+      "name": "m_feature05_dark.png",
+      "reason": "Loaded resource fetch failed: Asset bundling failed; page fetch failed: Browser Use encountered an error interacting with this webpage: TypeError: Failed to fetch\n    at s (https://openai.com/_next/static/chunks/0h.l_ibqa8akq.js?dpl=dpl_ih8CWneyTvq8goZYoY6HKhVgyH8a:1:14509)\n    at u7 (<anonymous>:1:41)\n    at <anonymous>:1:354",
+      "url": "https://images.ctfassets.net/kftzwdyauwt9/2zN0Ncd3EkWnslWYX4UOQA/77cf390e470ab9f82a5d69f66e06b8ed/m_feature05_dark.png?w=640&q=70&fm=webp"
+    },
+    {
+      "contentType": null,
+      "id": "7ea0f787395fe841",
+      "name": "App-darkmode__1_.png",
+      "reason": "Loaded resource fetch failed: Asset bundling failed; page fetch failed: Browser Use encountered an error interacting with this webpage: TypeError: Failed to fetch\n    at s (https://openai.com/_next/static/chunks/0h.l_ibqa8akq.js?dpl=dpl_ih8CWneyTvq8goZYoY6HKhVgyH8a:1:14509)\n    at u7 (<anonymous>:1:41)\n    at <anonymous>:1:354",
+      "url": "https://images.ctfassets.net/kftzwdyauwt9/7FJs3dz87hHIMNmTiPhlKR/743097e51cc4c6b980ee450a880aa722/App-darkmode__1_.png?w=640&q=70&fm=webp"
+    },
+    {
+      "contentType": null,
+      "id": "7ffc6d4f05698956",
+      "name": "Editor-darkmode.png",
+      "reason": "Loaded resource fetch failed: Asset bundling failed; page fetch failed: Browser Use encountered an error interacting with this webpage: TypeError: Failed to fetch\n    at s (https://openai.com/_next/static/chunks/0h.l_ibqa8akq.js?dpl=dpl_ih8CWneyTvq8goZYoY6HKhVgyH8a:1:14509)\n    at u7 (<anonymous>:1:41)\n    at <anonymous>:1:354",
+      "url": "https://images.ctfassets.net/kftzwdyauwt9/5wgUCBbgbEAVjHx0Sdg2YP/7b72875f6c20e685e486c34c9af34e74/Editor-darkmode.png?w=640&q=70&fm=webp"
+    },
+    {
+      "contentType": null,
+      "id": "2e00e4007421d1fe",
+      "name": "Terminal-darkmode.png",
+      "reason": "Loaded resource fetch failed: Asset bundling failed; page fetch failed: Browser Use encountered an error interacting with this webpage: TypeError: Failed to fetch\n    at s (https://openai.com/_next/static/chunks/0h.l_ibqa8akq.js?dpl=dpl_ih8CWneyTvq8goZYoY6HKhVgyH8a:1:14509)\n    at u7 (<anonymous>:1:41)\n    at <anonymous>:1:354",
+      "url": "https://images.ctfassets.net/kftzwdyauwt9/2EgJ6UlRJkSsFOx7KDHMar/2a3bab2c6c843398dd5f997483885a65/Terminal-darkmode.png?w=640&q=70&fm=webp"
+    },
+    {
+      "contentType": null,
+      "id": "15b5f1460d6b703a",
+      "name": "m_hero_v1-1.png",
+      "reason": "Loaded resource fetch failed: Asset bundling failed; page fetch failed: Browser Use encountered an error interacting with this webpage: TypeError: Failed to fetch\n    at s (https://openai.com/_next/static/chunks/0h.l_ibqa8akq.js?dpl=dpl_ih8CWneyTvq8goZYoY6HKhVgyH8a:1:14509)\n    at u7 (<anonymous>:1:41)\n    at <anonymous>:1:354",
+      "url": "https://images.ctfassets.net/kftzwdyauwt9/1o8am0oaqObJCmVeMtQ15j/f4ed5518202d69e9294287a073327136/m_hero_v1-1.png?w=640&q=70&fm=webp"
+    }
+  ]
+}

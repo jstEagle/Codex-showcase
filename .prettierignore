@@ -1,3 +1,10 @@
 package-lock.json
 pnpm-lock.yaml
 yarn.lock
+next-env.d.ts
+.next
+.nitro
+.output
+node_modules
+codex-showcase-export
+docs/design-system

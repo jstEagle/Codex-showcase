@@ -1,0 +1,37 @@
+{
+  "schemaVersion": "codex-showcase-config/v1",
+  "artifactVersion": "codex-showcase-project/v1",
+  "defaultOutputDir": "codex-showcase-export",
+  "redactionPatterns": [
+    {
+      "name": "email",
+      "pattern": "\\b[A-Z0-9._%+-]+@[A-Z0-9.-]+\\.[A-Z]{2,}\\b",
+      "flags": "gi",
+      "replacement": "[redacted-email]"
+    },
+    {
+      "name": "api-key-like-token",
+      "pattern": "\\b(?:sk|pk|rk|ghp|github_pat|xox[baprs]|vercel|supabase|railway|openrouter|anthropic|openai)[A-Za-z0-9_\\-]{16,}\\b",
+      "flags": "gi",
+      "replacement": "[redacted-token]"
+    },
+    {
+      "name": "jwt",
+      "pattern": "\\beyJ[A-Za-z0-9_-]+\\.[A-Za-z0-9_-]+\\.[A-Za-z0-9_-]+\\b",
+      "flags": "g",
+      "replacement": "[redacted-jwt]"
+    },
+    {
+      "name": "private-env-assignment",
+      "pattern": "\\b[A-Z][A-Z0-9_]*(?:SECRET|TOKEN|API_KEY|PASSWORD|PRIVATE_KEY)\\s*=\\s*[^\\s]+",
+      "flags": "g",
+      "replacement": "[redacted-secret-assignment]"
+    },
+    {
+      "name": "local-home-path",
+      "pattern": "/Users/[^\\s/]+",
+      "flags": "g",
+      "replacement": "/Users/[redacted-user]"
+    }
+  ]
+}

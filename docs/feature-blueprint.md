@@ -2,11 +2,42 @@
 
 ## Product Shape
 
-Codex Showcase should feel like a Codex workspace where the "threads" are not private coding sessions, but public project stories. The left sidebar becomes a discovery and collection system. The main pane becomes a project reading, submission, and review surface. The bottom composer becomes the primary way ambassadors start or improve a submission.
+Codex Showcase should feel like a Codex workspace where the only primitive is a project. A project is both a public post and a cleaned build-history artifact. The left sidebar becomes a discovery and collection system. The main pane becomes a project reading, submission, history, and review surface. The bottom composer becomes the primary way visitors search projects and ambassadors start or improve a submission.
 
 The product should answer one question quickly and credibly:
 
 "What are people actually building with Codex?"
+
+## Project Primitive
+
+A project has two required parts.
+
+### Public Post
+
+This is the blog-like surface a visitor reads first:
+
+- Title.
+- Description.
+- Author.
+- Maker or team.
+- Body sections.
+- Links to demo, GitHub, videos, images, articles, or other public artifacts.
+- Stack, tags, category, status, and update metadata.
+
+### Codex History
+
+This is the inspectable build record:
+
+- Thread metadata.
+- User messages.
+- Final Codex outcome messages.
+- A simple `worked for ...` duration for each turn.
+- No raw tool-call bodies.
+- No command-output dumps.
+- No hidden reasoning.
+- No secrets, private emails, credentials, or local user paths.
+
+The upload format should be a `project.json` artifact using `codex-showcase-project/v1`. The companion `project.md` gives the same project a portable, reviewable Markdown form.
 
 ## Core Product Loops
 
@@ -21,11 +52,14 @@ The product should answer one question quickly and credibly:
 ### Ambassador Publishing Loop
 
 1. Ambassador signs in.
-2. They create a new project submission from the Codex-style composer.
-3. They add structured sections, media, links, tags, and workflow notes.
-4. They preview the post as it will appear publicly.
-5. They submit for review or publish if trusted.
-6. They can later update the project with new demos, launches, or lessons.
+2. They run the Codex Showcase skill inside the project they built.
+3. Codex gathers local thread history, writes a Markdown project post draft, and runs the exporter CLI.
+4. The CLI writes `project.md` and `project.json`.
+5. The ambassador reviews the scrubbed output and adds any missing links, videos, images, repository URLs, or demo URLs.
+6. They upload the project artifact.
+7. They preview the project as it will appear publicly.
+8. They submit for review or publish if trusted.
+9. They can later update the project with new demos, launches, or lessons.
 
 ### Editorial Curation Loop
 
@@ -91,13 +125,55 @@ For the public homepage, the same composition can show a featured project instea
 
 A project detail page should feel like a Codex thread:
 
-- User prompt: the ambassador's initial project brief.
-- Assistant response: polished project story.
+- Project post: the polished public story.
 - Attachments: screenshots, videos, demo links, repos.
+- Codex history: each user request followed by the final Codex outcome and a `worked for ...` label.
+- Artifact panel: the importable `project.json` shape.
 - Change cards: "Updated demo link", "Added launch video", "Published v2".
 - Review controls for editors.
 
 This lets the project avoid feeling like a normal blog and instead feel like a living Codex artifact.
+
+## CLI And Skill
+
+The CLI should be runnable from inside any Codex project:
+
+```bash
+npx codex-showcase export --project-dir "$PWD"
+```
+
+Responsibilities:
+
+- Find Codex session JSONL files for the current project directory.
+- Pair user messages with final assistant output messages.
+- Estimate per-turn duration from timestamps when the UI's exact duration is unavailable.
+- Drop tool calls, command logs, hidden reasoning, and intermediary commentary.
+- Apply configured regex redactions from `codex-showcase.config.json`.
+- Write `codex-showcase-export/project.json`.
+- Write `codex-showcase-export/project.md`.
+
+The Codex skill wraps the CLI with public-metadata collection and review guidance. It should ask for missing public fields, run the exporter, inspect the result, and require reruns when redaction misses private content.
+
+## Backend And Deployment
+
+The production app is a Next.js App Router project deployed on Vercel with Supabase as the database.
+
+Core backend surfaces:
+
+- `projects`: published project posts plus links and flattened Codex history.
+- `project_submissions`: private uploaded artifacts waiting for review.
+- `GET /api/projects`: public project listing.
+- `GET /api/projects/[slug]`: public project detail.
+- `POST /api/submissions`: public artifact submission for review.
+- `POST /api/projects`: admin import route for publishing a reviewed `project.json`.
+
+Security expectations:
+
+- Public visitors can only read published projects.
+- Review submissions are not readable by public clients.
+- Admin imports require a server-side service-role key and an admin token.
+- Supabase RLS is enabled on exposed tables.
+- Public Data API grants are explicit and limited to selecting published projects.
 
 ### Environment Panel
 

@@ -10,7 +10,7 @@ The goal is not to make a marketing blog. The goal is to make a product surface 
 
 ## Core Premise
 
-Build a TanStack Start application that visually clones the Codex native app UI for the web.
+Build a Next.js application that feels native to the Codex ecosystem without directly copying the Codex UI.
 
 The functional product is a showcase platform:
 
@@ -243,15 +243,15 @@ The project itself is the visual content. Screenshots, videos, demos, and build 
 
 ## Technical Direction
 
-Use TanStack Start as the application foundation.
+Use Next.js, Supabase, and Vercel as the application foundation.
 
 Preferred stack:
 
-- TanStack Start for routing, server functions, and full-stack app structure.
-- TanStack Router for route-first composition.
-- TanStack Query where client/server data synchronization is needed.
+- Next.js App Router for public pages and backend route handlers.
+- Supabase Postgres for projects, submissions, and published build-history artifacts.
+- Vercel for hosting and deployment.
 - TypeScript throughout.
-- A database-backed content model for projects, ambassadors, media, tags, and submissions.
+- A database-backed content model for projects, ambassadors, media, tags, submissions, and imported `project.json` artifacts.
 - Authentication for ambassador accounts.
 - Object storage for images and videos.
 - Markdown or rich-text JSON for post bodies, depending on editor needs.
@@ -262,11 +262,11 @@ Non-secret configuration should live in checked-in config files. Only secrets su
 
 The first useful version should include:
 
-- TanStack Start app shell that visually resembles Codex.
+- Next.js app shell for project discovery.
 - Public project feed.
 - Project detail page.
-- Ambassador login.
-- Ambassador project submission form.
+- Project story viewer for Codex thread history.
+- Project artifact submission form.
 - Rich post body support.
 - Image upload support.
 - External link support.
