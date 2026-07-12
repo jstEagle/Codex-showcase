@@ -8,3 +8,7 @@ next-env.d.ts
 node_modules
 codex-showcase-export
 docs/design-system
+cloudflare-env.d.ts
+drizzle/meta
+.open-next
+tsconfig.tsbuildinfo

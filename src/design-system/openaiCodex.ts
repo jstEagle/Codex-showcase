@@ -23,7 +23,7 @@ export const openAiCodexDesignSystem = {
     dim: 'rgba(255, 255, 255, 0.42)',
     button: '#fff',
     inverseText: '#000',
-    success: '#5dd135',
+    success: '#DEEEC4',
   },
   radius: {
     cta: '40px',

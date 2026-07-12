@@ -1,0 +1,22 @@
+name: Feature request
+description: Suggest a focused improvement to the exporter, skill, or gallery.
+title: 'feature: '
+labels:
+  - enhancement
+body:
+  - type: textarea
+    id: problem
+    attributes:
+      label: Problem to solve
+      description: Describe the user need, not only the proposed implementation.
+    validations:
+      required: true
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Proposed approach
+  - type: textarea
+    id: privacy
+    attributes:
+      label: Privacy or security considerations
+      description: Explain whether this could expose additional conversation or project data.

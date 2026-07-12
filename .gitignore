@@ -1,5 +1,6 @@
 node_modules
 .next
+.open-next
 .DS_Store
 dist
 dist-ssr
@@ -8,8 +9,10 @@ dist-ssr
 .nitro
 .tanstack
 .wrangler
+.dev.vars
 .output
 .vinxi
 __unconfig*
 todos.json
+*.tsbuildinfo
 /codex-showcase-export/

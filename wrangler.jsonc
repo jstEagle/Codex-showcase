@@ -1,0 +1,39 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "codex-showcase",
+  "main": ".open-next/worker.js",
+  "compatibility_date": "2026-07-11",
+  "compatibility_flags": ["nodejs_compat", "global_fetch_strictly_public"],
+  "assets": {
+    "directory": ".open-next/assets",
+    "binding": "ASSETS",
+  },
+  "services": [
+    {
+      "binding": "WORKER_SELF_REFERENCE",
+      "service": "codex-showcase",
+    },
+  ],
+  "r2_buckets": [
+    {
+      "binding": "MEDIA_BUCKET",
+      "bucket_name": "codex-showcase-media",
+      "remote": true,
+    },
+  ],
+  "images": {
+    "binding": "IMAGES",
+  },
+  "vars": {
+    "NEXTJS_ENV": "production",
+  },
+  "d1_databases": [
+    {
+      "binding": "DB",
+      "database_name": "codex-showcase",
+      "database_id": "3fa51e02-afc2-4d70-8b6d-ad782c37e881",
+      "remote": true,
+      "migrations_dir": "drizzle",
+    },
+  ],
+}

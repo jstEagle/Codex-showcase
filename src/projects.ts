@@ -1,7 +1,39 @@
+import type { CardAnimation } from './config/app'
+
 export type ProjectLink = {
   label: string
   url: string
   kind: 'demo' | 'repo' | 'video' | 'image' | 'article'
+}
+
+export type ProjectMedia = {
+  id: string
+  name: string
+  kind: 'image' | 'video'
+  contentType: string
+  size: number
+  objectKey: string
+  url: string
+  cover?: boolean
+}
+
+export type TokenUsage = {
+  inputTokens: number
+  cachedInputTokens: number
+  outputTokens: number
+  reasoningOutputTokens: number
+  totalTokens: number
+}
+
+export type ProjectMetrics = {
+  threadCount: number
+  turnCount: number
+  firstPromptAt?: string
+  lastResponseAt?: string
+  wallClockDurationMs?: number
+  activeDurationMs?: number
+  tokens?: TokenUsage
+  tokenCountSource: 'recorded' | 'partial' | 'unavailable'
 }
 
 export type ProjectTurn = {
@@ -9,211 +41,323 @@ export type ProjectTurn = {
   user: string
   codex: string
   workedFor: string
+  requestedAt?: string
+  completedAt?: string
+  durationMs?: number
+  tokens?: TokenUsage
+}
+
+export type ProjectThread = {
+  id: string
+  title: string
+  startedAt?: string
+  sourceCwd?: string
+  turns: Array<ProjectTurn>
+  metrics?: ProjectMetrics
+}
+
+export type ProjectArtifact = {
+  schema: 'codex-showcase-project'
+  exportedAt?: string
+  source?: {
+    projectDir?: string
+    threadCount?: number
+  }
+  metrics?: ProjectMetrics
+  redaction?: {
+    totalMatches: number
+    rules: Array<{ name: string; matches: number }>
+    warnings: Array<string>
+  }
+  privacyReview?: {
+    required: boolean
+    confirmedAt?: string
+  }
+  project: {
+    title: string
+    description: string
+    author: string
+    maker?: string
+    category?: string
+    cardAnimation?: CardAnimation
+    stack?: Array<string>
+    links?: Array<ProjectLink>
+    media?: Array<ProjectMedia>
+    heroImageUrl?: string
+    createdAt?: string
+  }
+  post: {
+    title?: string
+    body: Array<string>
+  }
+  threads: Array<ProjectThread>
 }
 
 export type Project = {
+  id?: string
   slug: string
   title: string
   author: string
   maker: string
   description: string
   body: Array<string>
+  projectMarkdown?: string
   category: string
+  cardAnimation: CardAnimation
   stack: Array<string>
   links: Array<ProjectLink>
+  media: Array<ProjectMedia>
   status: 'Featured' | 'Popular' | 'New'
   updated: string
+  createdAt: string
+  heroImageUrl: string | null
+  metrics: ProjectMetrics
+  published: boolean
+  storyThreadCount: number
+  storyTurnCount: number
+  artifactPath?: string | null
   history: Array<ProjectTurn>
+  threads?: Array<ProjectThread>
 }
 
-export const projects: Array<Project> = [
+const now = new Date('2026-06-28T00:00:00.000Z').toISOString()
+
+export const sampleArtifacts: Array<ProjectArtifact> = [
   {
-    slug: 'realtime-volatility-research-lab',
-    title: 'Realtime Volatility Research Lab',
-    author: 'Mira Chen',
-    maker: 'Mira Chen',
-    description:
-      'A research console that turns market data, Codex-generated Rust experiments, and report snapshots into a repeatable backtesting workflow.',
-    body: [
-      'The project started as a messy folder of market notes, simulation snippets, and screenshots from failed backtests.',
-      'Codex helped turn that pile into a repeatable lab: a Rust engine, a TanStack interface, a report surface, and a review loop for comparing strategy changes.',
-    ],
-    category: 'Research',
-    stack: ['Rust', 'TanStack', 'Hyperliquid'],
-    links: [
+    schema: 'codex-showcase-project',
+    exportedAt: now,
+    project: {
+      title: 'Realtime Volatility Research Lab',
+      description:
+        'A research console that turns market data, Codex-generated Rust experiments, and report snapshots into a repeatable backtesting workflow.',
+      author: 'Mira Chen',
+      maker: 'Mira Chen',
+      category: 'Research',
+      cardAnimation: 'liquid',
+      stack: ['Rust', 'Next.js', 'Hyperliquid'],
+      links: [
+        {
+          label: 'Live demo',
+          url: 'https://demo.codex.show/volatility-lab',
+          kind: 'demo',
+        },
+        {
+          label: 'Repository',
+          url: 'https://github.com/mirachen/volatility-lab',
+          kind: 'repo',
+        },
+      ],
+      createdAt: now,
+    },
+    post: {
+      body: [
+        'The project started as a messy folder of market notes, simulation snippets, and screenshots from failed backtests.',
+        'Codex helped turn that pile into a repeatable lab: a Rust engine, a Next.js interface, a report surface, and a review loop for comparing strategy changes.',
+      ],
+    },
+    threads: [
       {
-        label: 'Live demo',
-        url: 'https://demo.codex.show/volatility-lab',
-        kind: 'demo',
-      },
-      {
-        label: 'Repository',
-        url: 'https://github.com/mirachen/volatility-lab',
-        kind: 'repo',
-      },
-      {
-        label: 'Report video',
-        url: 'https://video.codex.show/volatility-lab',
-        kind: 'video',
-      },
-    ],
-    status: 'Featured',
-    updated: '12m',
-    history: [
-      {
-        id: 'turn-1',
-        user: 'Turn my backtesting notes into a real research app with a dashboard and repeatable runs.',
-        codex:
-          'Created the app shell, wired the strategy runner, added a route for run comparison, and documented the expected research loop.',
-        workedFor: 'worked for 18 minutes',
-      },
-      {
-        id: 'turn-2',
-        user: 'The report page is too hard to compare. Make the winning and losing runs obvious.',
-        codex:
-          'Reworked the visual report with run cards, deltas, drawdown badges, and a compact table for fast comparison.',
-        workedFor: 'worked for 11 minutes',
+        id: 'thread-research-lab',
+        title: 'Turn research notes into a repeatable lab',
+        startedAt: now,
+        turns: [
+          {
+            id: 'turn-1',
+            user: 'Turn my backtesting notes into a real research app with a dashboard and repeatable runs.',
+            codex:
+              'Created the app shell, wired the strategy runner, added a route for run comparison, and documented the expected research loop.',
+            workedFor: 'worked for 18 minutes',
+          },
+          {
+            id: 'turn-2',
+            user: 'The report page is too hard to compare. Make the winning and losing runs obvious.',
+            codex:
+              'Reworked the visual report with run cards, deltas, drawdown badges, and a compact table for fast comparison.',
+            workedFor: 'worked for 11 minutes',
+          },
+        ],
       },
     ],
   },
   {
-    slug: 'pocket-crm-from-slack-threads',
-    title: 'Pocket CRM From Slack Threads',
-    author: 'Theo Ramirez',
-    maker: 'Theo Ramirez',
-    description:
-      'Codex converted support conversations into a small CRM with follow-ups, account notes, and Linear-ready task extraction.',
-    body: [
-      'The app treats scattered Slack context as the source material for account follow-up work.',
-      'The published project includes the user-facing app, the extraction rules, and the build history that explains why the data model stayed small.',
-    ],
-    category: 'Automation',
-    stack: ['Slack', 'Postgres', 'React'],
-    links: [
+    schema: 'codex-showcase-project',
+    exportedAt: now,
+    project: {
+      title: 'Recipe Import Recovery',
+      description:
+        'A production debugging story where Codex traced failed recipe saves through deployment logs, route handlers, and database writes.',
+      author: 'Nadia Vale',
+      maker: 'Nadia Vale',
+      category: 'Debugging',
+      cardAnimation: 'terrain',
+      stack: ['Next.js', 'Clerk', 'Cloudflare'],
+      links: [
+        {
+          label: 'Live app',
+          url: 'https://orangecard.justus.sh',
+          kind: 'demo',
+        },
+        {
+          label: 'Repository',
+          url: 'https://github.com/nadiavale/orange-card',
+          kind: 'repo',
+        },
+      ],
+      createdAt: new Date('2026-06-27T00:00:00.000Z').toISOString(),
+    },
+    post: {
+      body: [
+        'This project is useful because the build history is the product proof: a visible runtime failure became a traced fix rather than a guess.',
+        'The showcase artifact preserves the prompt, the final Codex summaries, and the polished write-up without publishing raw tool-call logs.',
+      ],
+    },
+    threads: [
       {
-        label: 'Live demo',
-        url: 'https://demo.codex.show/pocket-crm',
-        kind: 'demo',
-      },
-      {
-        label: 'Repository',
-        url: 'https://github.com/theor/pocket-crm',
-        kind: 'repo',
-      },
-    ],
-    status: 'Popular',
-    updated: '48m',
-    history: [
-      {
-        id: 'turn-1',
-        user: 'Build a tiny CRM from these Slack support threads. Keep it operational, not salesy.',
-        codex:
-          'Modeled accounts, notes, follow-ups, and source links, then built the first searchable workspace view.',
-        workedFor: 'worked for 24 minutes',
-      },
-      {
-        id: 'turn-2',
-        user: 'Add a way to turn important support asks into Linear-ready tasks.',
-        codex:
-          'Added task extraction, confidence labels, editable summaries, and a review queue before handoff.',
-        workedFor: 'worked for 15 minutes',
-      },
-    ],
-  },
-  {
-    slug: 'recipe-import-recovery',
-    title: 'Recipe Import Recovery',
-    author: 'Nadia Vale',
-    maker: 'Nadia Vale',
-    description:
-      'A production debugging story where Codex traced failed recipe saves through deployment logs, route handlers, and database writes.',
-    body: [
-      'This project is useful because the build history is the product proof: a visible runtime failure became a traced fix rather than a guess.',
-      'The showcase artifact preserves the prompt, the final Codex summaries, and the polished write-up without publishing raw tool-call logs.',
-    ],
-    category: 'Debugging',
-    stack: ['Next.js', 'Supabase', 'Vercel'],
-    links: [
-      {
-        label: 'Live app',
-        url: 'https://orangecard.justus.sh',
-        kind: 'demo',
-      },
-      {
-        label: 'Repository',
-        url: 'https://github.com/nadiavale/orange-card',
-        kind: 'repo',
-      },
-      {
-        label: 'Source image',
-        url: 'https://images.codex.show/orange-card/import-source.png',
-        kind: 'image',
-      },
-    ],
-    status: 'Featured',
-    updated: '1d',
-    history: [
-      {
-        id: 'turn-1',
-        user: 'Recipe imports are hallucinating and sometimes failing to save. Trace the real path and fix it.',
-        codex:
-          'Checked live logs, found the save failure path, tightened source-faithful extraction, and added duplicate-safe imported slugs.',
-        workedFor: 'worked for 31 minutes',
-      },
-      {
-        id: 'turn-2',
-        user: 'Commit and push this cleanly without including unrelated package-manager files.',
-        codex:
-          'Verified the build, kept unrelated files out of the commit, configured GitHub auth, pushed to main, and confirmed the branch matched origin.',
-        workedFor: 'worked for 9 minutes',
-      },
-    ],
-  },
-  {
-    slug: 'mobile-briefing-composer',
-    title: 'Mobile Briefing Composer',
-    author: 'Jon Bell',
-    maker: 'Jon Bell',
-    description:
-      'A mobile article briefing app rebuilt with Codex across Expo, backend ingestion, realtime updates, audio, and source management.',
-    body: [
-      'The finished project is a mobile-first briefing workspace for collecting sources and generating deeper article reads.',
-      'Its Codex history shows the useful part: production backend triage, UI rebuilds, mobile auth fixes, and iterative polish across multiple services.',
-    ],
-    category: 'Mobile',
-    stack: ['Expo', 'Railway', 'Supabase'],
-    links: [
-      {
-        label: 'Live demo',
-        url: 'https://demo.codex.show/mobile-briefing',
-        kind: 'demo',
-      },
-      {
-        label: 'Repository',
-        url: 'https://github.com/jonbell/mobile-briefing',
-        kind: 'repo',
-      },
-    ],
-    status: 'New',
-    updated: '4d',
-    history: [
-      {
-        id: 'turn-1',
-        user: 'The mobile login loop is broken in Expo Go. Make the callback flow actually work.',
-        codex:
-          'Traced callback ownership, updated the auth redirect handling, and verified the Expo Go path with the correct deep link shape.',
-        workedFor: 'worked for 22 minutes',
-      },
-      {
-        id: 'turn-2',
-        user: 'Make source editing feel like a real app, not a settings form.',
-        codex:
-          'Rebuilt source management with dense controls, better saved states, topic editing, and a cleaner custom select interaction.',
-        workedFor: 'worked for 19 minutes',
+        id: 'thread-debugging',
+        title: 'Trace a production import failure',
+        startedAt: new Date('2026-06-27T00:00:00.000Z').toISOString(),
+        turns: [
+          {
+            id: 'turn-1',
+            user: 'Recipe imports are hallucinating and sometimes failing to save. Trace the real path and fix it.',
+            codex:
+              'Checked live logs, found the save failure path, tightened source-faithful extraction, and added duplicate-safe imported slugs.',
+            workedFor: 'worked for 31 minutes',
+          },
+          {
+            id: 'turn-2',
+            user: 'Commit and push this cleanly without including unrelated package-manager files.',
+            codex:
+              'Verified the build, kept unrelated files out of the commit, configured GitHub auth, pushed to main, and confirmed the branch matched origin.',
+            workedFor: 'worked for 9 minutes',
+          },
+        ],
       },
     ],
   },
 ]
+
+export const projects: Array<Project> = sampleArtifacts.map((artifact, index) =>
+  projectFromArtifact(artifact, index === 0 ? 'Featured' : 'New'),
+)
+
+export const projectArtifactExample = sampleArtifacts[0]
+
+export function projectFromArtifact(
+  artifact: ProjectArtifact,
+  status: Project['status'] = 'New',
+): Project {
+  const turns = artifact.threads.flatMap((thread) => thread.turns)
+  const createdAt =
+    artifact.project.createdAt ??
+    artifact.exportedAt ??
+    new Date().toISOString()
+
+  return {
+    slug: slugify(artifact.project.title),
+    title: artifact.project.title,
+    description: artifact.project.description,
+    author: artifact.project.author,
+    maker: artifact.project.maker || artifact.project.author,
+    category: artifact.project.category || 'Project',
+    cardAnimation: artifact.project.cardAnimation ?? 'liquid',
+    status,
+    body: artifact.post.body,
+    stack: artifact.project.stack ?? [],
+    links: artifact.project.links ?? [],
+    media: artifact.project.media ?? [],
+    updated: relativeTime(createdAt),
+    createdAt,
+    heroImageUrl: artifact.project.heroImageUrl ?? null,
+    metrics: artifact.metrics ?? summarizeMetrics(artifact.threads),
+    published: true,
+    storyThreadCount: artifact.threads.length,
+    storyTurnCount: turns.length,
+    history: turns,
+    threads: artifact.threads,
+  }
+}
+
+export function summarizeMetrics(
+  threads: Array<ProjectThread>,
+): ProjectMetrics {
+  const turns = threads.flatMap((thread) => thread.turns)
+  const requestedAt = turns
+    .map((turn) => turn.requestedAt)
+    .filter((value): value is string => Boolean(value))
+    .sort()
+  const completedAt = turns
+    .map((turn) => turn.completedAt)
+    .filter((value): value is string => Boolean(value))
+    .sort()
+  const tokens = turns.reduce<TokenUsage | undefined>((total, turn) => {
+    if (!turn.tokens) {
+      return total
+    }
+
+    const current = total ?? emptyTokenUsage()
+    return addTokenUsage(current, turn.tokens)
+  }, undefined)
+  const activeDurationMs = turns.reduce(
+    (total, turn) =>
+      total + (turn.durationMs ?? durationFromLabel(turn.workedFor)),
+    0,
+  )
+  const firstPromptAt = requestedAt[0]
+  const lastResponseAt = completedAt.at(-1)
+
+  return {
+    threadCount: threads.length,
+    turnCount: turns.length,
+    firstPromptAt,
+    lastResponseAt,
+    wallClockDurationMs:
+      firstPromptAt && lastResponseAt
+        ? Math.max(0, Date.parse(lastResponseAt) - Date.parse(firstPromptAt))
+        : undefined,
+    activeDurationMs: activeDurationMs || undefined,
+    tokens,
+    tokenCountSource: tokens ? 'partial' : 'unavailable',
+  }
+}
+
+function emptyTokenUsage(): TokenUsage {
+  return {
+    inputTokens: 0,
+    cachedInputTokens: 0,
+    outputTokens: 0,
+    reasoningOutputTokens: 0,
+    totalTokens: 0,
+  }
+}
+
+function addTokenUsage(a: TokenUsage, b: TokenUsage): TokenUsage {
+  return {
+    inputTokens: a.inputTokens + b.inputTokens,
+    cachedInputTokens: a.cachedInputTokens + b.cachedInputTokens,
+    outputTokens: a.outputTokens + b.outputTokens,
+    reasoningOutputTokens: a.reasoningOutputTokens + b.reasoningOutputTokens,
+    totalTokens: a.totalTokens + b.totalTokens,
+  }
+}
+
+function durationFromLabel(value: string) {
+  const match = value.match(/([\d.]+)\s+(second|minute|hour)/i)
+  if (!match) {
+    return 0
+  }
+
+  const amount = Number(match[1])
+  const unit = match[2].toLowerCase()
+  return (
+    amount *
+    (unit.startsWith('hour')
+      ? 3_600_000
+      : unit.startsWith('minute')
+        ? 60_000
+        : 1_000)
+  )
+}
 
 export function getProject(slug: string): Project | undefined {
   return projects.find((project) => project.slug === slug)
@@ -245,58 +389,55 @@ export function searchProjects(
     return pool
   }
 
-  return pool
-    .map((project) => {
-      const haystack = [
-        project.title,
-        project.author,
-        project.description,
-        project.category,
-        project.status,
-        ...project.stack,
-        ...project.links.map((link) => link.url),
-      ]
-        .join(' ')
-        .toLowerCase()
+  return pool.filter((project) => {
+    const haystack = [
+      project.title,
+      project.author,
+      project.description,
+      project.category,
+      project.status,
+      ...project.stack,
+      ...project.links.map((link) => link.url),
+      ...project.history.flatMap((turn) => [turn.user, turn.codex]),
+    ]
+      .join(' ')
+      .toLowerCase()
 
-      const score = terms.reduce(
-        (sum, term) => sum + (haystack.includes(term) ? 1 : 0),
-        0,
-      )
-
-      return { project, score }
-    })
-    .filter((entry) => entry.score > 0)
-    .sort((a, b) => b.score - a.score)
-    .map((entry) => entry.project)
+    return terms.every((term) => haystack.includes(term))
+  })
 }
 
-export const projectArtifactExample = {
-  schemaVersion: 'codex-showcase-project/v1',
-  project: {
-    title: 'Realtime Volatility Research Lab',
-    description:
-      'A polished project post plus its cleaned Codex build history.',
-    author: 'Mira Chen',
-    maker: 'Mira Chen',
-    links: [
-      {
-        label: 'Repository',
-        url: 'https://github.com/mirachen/volatility-lab',
-      },
-      { label: 'Demo', url: 'https://demo.codex.show/volatility-lab' },
-    ],
-  },
-  codexHistory: [
-    {
-      threadId: '019e...',
-      turns: [
-        {
-          user: 'Build the first research dashboard.',
-          codex: 'Created the app shell, routes, and comparison view.',
-          workedFor: 'worked for 18 minutes',
-        },
-      ],
-    },
-  ],
+export function slugify(value: string) {
+  return value
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, '-')
+    .replace(/^-+|-+$/g, '')
+}
+
+function relativeTime(value: string) {
+  const timestamp = Date.parse(value)
+
+  if (!Number.isFinite(timestamp)) {
+    return 'recently'
+  }
+
+  const seconds = Math.max(0, Math.round((Date.now() - timestamp) / 1000))
+
+  if (seconds < 60) {
+    return 'now'
+  }
+
+  const minutes = Math.round(seconds / 60)
+
+  if (minutes < 60) {
+    return `${minutes}m`
+  }
+
+  const hours = Math.round(minutes / 60)
+
+  if (hours < 24) {
+    return `${hours}h`
+  }
+
+  return `${Math.round(hours / 24)}d`
 }

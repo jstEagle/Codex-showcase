@@ -1,0 +1,38 @@
+name: Bug report
+description: Report an unexpected behaviour in the exporter, Codex skill, or gallery.
+title: 'bug: '
+labels:
+  - bug
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Do not include real unredacted Codex transcripts, credentials, or private project material.
+  - type: dropdown
+    id: surface
+    attributes:
+      label: Affected surface
+      options:
+        - Exporter CLI
+        - Codex skill
+        - Gallery
+        - Ambassador portal
+        - Deployment or infrastructure
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected behaviour
+    validations:
+      required: true
+  - type: textarea
+    id: actual
+    attributes:
+      label: Actual behaviour and safe reproduction steps
+    validations:
+      required: true
+  - type: input
+    id: version
+    attributes:
+      label: Command, commit, or deployed URL

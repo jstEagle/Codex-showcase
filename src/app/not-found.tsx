@@ -1,13 +1,10 @@
 import Link from 'next/link'
 
 import { Shell } from '../components/Shell'
-import { listProjects } from '../lib/project-data'
 
-export default async function NotFound() {
-  const projects = await listProjects()
-
+export default function NotFound() {
   return (
-    <Shell projects={projects}>
+    <Shell>
       <section className="codex-main">
         <div className="main-scroll">
           <div className="main-pad">

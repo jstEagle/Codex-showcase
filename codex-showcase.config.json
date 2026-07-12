@@ -1,7 +1,8 @@
 {
-  "schemaVersion": "codex-showcase-config/v1",
-  "artifactVersion": "codex-showcase-project/v1",
+  "artifactSchema": "codex-showcase-project",
   "defaultOutputDir": "codex-showcase-export",
+  "defaultCardAnimation": "liquid",
+  "cardAnimations": ["liquid", "flow", "terrain", "orbit", "rain"],
   "redactionPatterns": [
     {
       "name": "email",
@@ -22,6 +23,24 @@
       "replacement": "[redacted-jwt]"
     },
     {
+      "name": "aws-access-key",
+      "pattern": "\\b(?:AKIA|ASIA)[A-Z0-9]{16}\\b",
+      "flags": "g",
+      "replacement": "[redacted-aws-key]"
+    },
+    {
+      "name": "private-key-block",
+      "pattern": "-----BEGIN(?: [A-Z0-9]+)? PRIVATE KEY-----[\\s\\S]*?-----END(?: [A-Z0-9]+)? PRIVATE KEY-----",
+      "flags": "g",
+      "replacement": "[redacted-private-key]"
+    },
+    {
+      "name": "basic-auth-url",
+      "pattern": "https?:\\/\\/[^\\s/:]+:[^\\s/@]+@",
+      "flags": "gi",
+      "replacement": "https://[redacted-credentials]@"
+    },
+    {
       "name": "private-env-assignment",
       "pattern": "\\b[A-Z][A-Z0-9_]*(?:SECRET|TOKEN|API_KEY|PASSWORD|PRIVATE_KEY)\\s*=\\s*[^\\s]+",
       "flags": "g",
@@ -32,6 +51,18 @@
       "pattern": "/Users/[^\\s/]+",
       "flags": "g",
       "replacement": "/Users/[redacted-user]"
+    },
+    {
+      "name": "shell-prompt-identity",
+      "pattern": "\\b[a-z][A-Za-z0-9._-]{0,63}@[A-Z][A-Za-z0-9.-]{2,127}",
+      "flags": "g",
+      "replacement": "[redacted-shell-user]"
+    },
+    {
+      "name": "memory-citation-block",
+      "pattern": "<oai-mem-citation>[\\s\\S]*?<\\/oai-mem-citation>",
+      "flags": "g",
+      "replacement": ""
     }
   ]
 }

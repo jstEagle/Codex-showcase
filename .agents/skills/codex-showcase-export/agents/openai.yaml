@@ -1,0 +1,4 @@
+interface:
+  display_name: "Codex Showcase Export"
+  short_description: "Build a complete ambassador upload bundle"
+  default_prompt: "Use $codex-showcase-export to package this project with its history, write-up, and generated cover image."

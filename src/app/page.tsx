@@ -1,18 +1,16 @@
-import { SearchExperience } from '../components/SearchExperience'
-import { Shell } from '../components/Shell'
-import { listProjects } from '../lib/project-data'
+import type { Metadata } from 'next'
 
-export default async function HomePage({
-  searchParams,
-}: {
-  searchParams: Promise<{ q?: string }>
-}) {
-  const { q } = await searchParams
-  const projects = await listProjects()
+import { HomeExperience } from '../components/HomeExperience'
+import { appConfig } from '../config/app'
+import { listProjectsPage } from '../lib/project-data'
 
-  return (
-    <Shell projects={projects}>
-      <SearchExperience projects={projects} initialQuery={q ?? ''} />
-    </Shell>
-  )
+export const metadata: Metadata = {
+  title: { absolute: appConfig.name },
+  description: appConfig.description,
+  alternates: { canonical: '/' },
+}
+
+export default async function HomePage() {
+  const initialPage = await listProjectsPage()
+  return <HomeExperience initialPage={initialPage} />
 }
