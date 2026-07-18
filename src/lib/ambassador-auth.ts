@@ -1,6 +1,8 @@
 import { auth, currentUser } from '@clerk/nextjs/server'
+import { sql } from 'drizzle-orm'
 
-import { appConfig } from '../config/app'
+import { allowedUsers } from '../db/schema'
+import { getDatabase } from './db'
 
 export type AmbassadorIdentity = {
   clerkUserId: string
@@ -8,12 +10,15 @@ export type AmbassadorIdentity = {
   name: string | null
 }
 
-export function isAllowedAmbassador(email: string) {
-  const allowlist = appConfig.auth.ambassadorEmails.map((item) =>
-    item.trim().toLowerCase(),
-  )
+export async function isAllowedAmbassador(email: string) {
+  const normalizedEmail = email.trim().toLowerCase()
+  const [allowedUser] = await getDatabase()
+    .select({ email: allowedUsers.email })
+    .from(allowedUsers)
+    .where(sql`lower(trim(${allowedUsers.email})) = ${normalizedEmail}`)
+    .limit(1)
 
-  return allowlist.length === 0 || allowlist.includes(email.toLowerCase())
+  return Boolean(allowedUser)
 }
 
 export async function getAmbassadorIdentity(): Promise<
@@ -43,7 +48,7 @@ export async function getAmbassadorIdentity(): Promise<
     }
   }
 
-  if (!isAllowedAmbassador(email)) {
+  if (!(await isAllowedAmbassador(email))) {
     return {
       error: `${email} is not on the ambassador upload list.`,
       status: 403,

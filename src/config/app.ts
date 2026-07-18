@@ -42,13 +42,12 @@ export const appConfig = {
   name: 'Codex Ambassador Showcase',
   description:
     'Explore projects built by Codex Ambassadors, including their stories, build statistics, prompts, and final Codex responses.',
-  baseUrl: 'https://codex-showcase.hunekejustus.workers.dev',
+  baseUrl: 'https://codexshowcase.dev',
   auth: {
     signInPath: '/sign-in',
     signUpPath: '/sign-up',
     afterSignInPath: '/ambassador',
     afterSignUpPath: '/ambassador',
-    ambassadorEmails: [] as Array<string>,
   },
   gallery: {
     pageSize: 100,

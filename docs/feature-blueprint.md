@@ -107,7 +107,9 @@ Exports use the single canonical `codex-showcase-project` schema.
 
 ## Ambassador Publishing
 
-Clerk handles Google sign-in. A signed-in account must also pass the checked-in email allowlist. Authorization is checked inside route handlers and not delegated solely to the Next.js proxy.
+Clerk handles Google sign-in. A signed-in account must also have a matching primary email in the Cloudflare D1 `allowed_users` table. The dashboard and every project/media mutation query that table through Drizzle on the server; authorization is not delegated solely to the Next.js proxy.
+
+Production uses `https://codexshowcase.dev` as the canonical application URL.
 
 The portal requires:
 

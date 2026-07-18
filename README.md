@@ -64,7 +64,7 @@ Regex redaction rules live in [`codex-showcase.config.json`](codex-showcase.conf
 
 The gallery is a Next.js App Router application hosted on Cloudflare Workers through OpenNext. Its main pieces are:
 
-- Clerk with Google sign-in plus a checked-in ambassador email allowlist.
+- Clerk with Google sign-in plus a Cloudflare D1 `allowed_users` table queried through Drizzle.
 - Cloudflare D1 with Drizzle for metadata, ownership, publication state, Markdown, and structured artifacts.
 - Private Cloudflare R2 for images and video, accessed only through same-origin Worker routes.
 - TanStack Query cursor pagination for the public project canvas.
@@ -85,11 +85,15 @@ NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY=...
 CLERK_SECRET_KEY=...
 ```
 
-Enable Google in Clerk, then add permitted publisher emails to `appConfig.auth.ambassadorEmails`. An empty allowlist is only appropriate for development.
+Enable Google in Clerk. Clerk can authenticate any user, while the ambassador dashboard and every project/media mutation check the signed-in user's normalized primary email against the D1 `allowed_users` table on the server.
 
 ## Deploy to Cloudflare
 
 [`wrangler.jsonc`](wrangler.jsonc) defines the Worker, D1, and private R2 bindings. Drizzle schema lives in [`src/db/schema.ts`](src/db/schema.ts) and generated D1 migrations live in [`drizzle`](drizzle).
+
+The production gallery is served from `https://codexshowcase.dev`. The apex
+hostname is attached directly to the production `codex-showcase` Worker as a
+proxied Cloudflare custom domain.
 
 ```bash
 npm run db:generate

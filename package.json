@@ -13,7 +13,7 @@
   "bugs": {
     "url": "https://github.com/jstEagle/Codex-showcase/issues"
   },
-  "homepage": "https://github.com/jstEagle/Codex-showcase#readme",
+  "homepage": "https://codexshowcase.dev",
   "bin": {
     "codex-showcase": "./bin/codex-showcase.mjs"
   },

@@ -1,3 +1,4 @@
+import { sql } from 'drizzle-orm'
 import { index, integer, sqliteTable, text } from 'drizzle-orm/sqlite-core'
 
 import type {
@@ -7,6 +8,13 @@ import type {
   ProjectMetrics,
   ProjectThread,
 } from '../projects'
+
+export const allowedUsers = sqliteTable('allowed_users', {
+  email: text('email').primaryKey(),
+  createdAt: text('created_at')
+    .notNull()
+    .default(sql`CURRENT_TIMESTAMP`),
+})
 
 export const projects = sqliteTable(
   'projects',
@@ -69,3 +77,4 @@ export const projectMedia = sqliteTable(
 )
 
 export type ProjectRow = typeof projects.$inferSelect
+export type AllowedUserRow = typeof allowedUsers.$inferSelect
