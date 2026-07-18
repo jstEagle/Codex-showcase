@@ -27,7 +27,9 @@ export async function GET(request: Request) {
 
   return NextResponse.json(page, {
     headers: {
-      'Cache-Control': 'public, max-age=15, stale-while-revalidate=120',
+      'Cache-Control': 'public, max-age=30, stale-while-revalidate=120',
+      'Cloudflare-CDN-Cache-Control':
+        'public, max-age=60, stale-while-revalidate=300',
     },
   })
 }

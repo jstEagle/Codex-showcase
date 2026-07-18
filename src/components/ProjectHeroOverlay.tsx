@@ -1,12 +1,16 @@
 'use client'
 
 import { gsap } from 'gsap'
-import { ArrowLeft } from 'lucide-react'
+import { ArrowLeft, Plug, Sparkles } from 'lucide-react'
 import type { ReactNode } from 'react'
 import { useEffect, useLayoutEffect, useRef, useState } from 'react'
 import ReactMarkdown, { type Components } from 'react-markdown'
 import remarkGfm from 'remark-gfm'
 
+import {
+  formatConversationTitle,
+  parsePromptMentions,
+} from '../lib/codex-mentions'
 import type { Project } from '../projects'
 import { HeroAsciiTrail } from './HeroAsciiTrail'
 
@@ -48,6 +52,11 @@ export function ProjectHeroOverlay({
   }, [onClose, onScroll])
 
   useEffect(() => {
+    const hasCompleteHistory =
+      (project.threads?.length ?? 0) >= project.storyThreadCount &&
+      project.history.length >= project.storyTurnCount
+    if (hasCompleteHistory) return
+
     const controller = new AbortController()
 
     void fetch(`/api/projects/${project.slug}`, {
@@ -63,7 +72,7 @@ export function ProjectHeroOverlay({
       })
 
     return () => controller.abort()
-  }, [project.slug])
+  }, [project])
 
   useEffect(() => {
     const onKeyDown = (event: KeyboardEvent) => {
@@ -364,31 +373,60 @@ function ProjectHistory({ project }: { project: Project }) {
           <article className="project-hero__thread" key={thread.id}>
             <div className="project-hero__thread-title">
               <span>{thread.turns.length} turns</span>
-              <h3>{thread.title}</h3>
+              <h3>
+                {formatConversationTitle(
+                  thread.title,
+                  thread.turns[0]?.user ?? '',
+                )}
+              </h3>
             </div>
-            {thread.turns.map((turn, index) => (
-              <div className="project-hero__turn" key={turn.id}>
-                <div className="project-hero__prompt">
-                  <p>{turn.user}</p>
-                </div>
-                <div className="project-hero__turn-meta">
-                  <span>{turn.workedFor.replace(/^worked/, 'Worked')}</span>
-                  <span>{String(index + 1).padStart(2, '0')}</span>
-                </div>
-                <div className="project-hero__response">
-                  <strong>Codex</strong>
-                  <div className="chat-markdown">
-                    <ReactMarkdown
-                      components={responseMarkdownComponents}
-                      remarkPlugins={[remarkGfm]}
-                      skipHtml
-                    >
-                      {turn.codex}
-                    </ReactMarkdown>
+            {thread.turns.map((turn, index) => {
+              const prompt = parsePromptMentions(turn.user)
+
+              return (
+                <div className="project-hero__turn" key={turn.id}>
+                  <div className="project-hero__prompt">
+                    {prompt.mentions.length > 0 ? (
+                      <div className="project-hero__mentions">
+                        {prompt.mentions.map((mention) => (
+                          <span
+                            className={`project-hero__mention project-hero__mention--${mention.type}`}
+                            key={`${mention.type}-${mention.name}`}
+                          >
+                            {mention.type === 'skill' ? (
+                              <Sparkles aria-hidden="true" size={11} />
+                            ) : (
+                              <Plug aria-hidden="true" size={11} />
+                            )}
+                            <span className="project-hero__mention-kind">
+                              {mention.type}
+                            </span>
+                            <span>{mention.name}</span>
+                          </span>
+                        ))}
+                      </div>
+                    ) : null}
+                    {prompt.text ? <p>{prompt.text}</p> : null}
+                  </div>
+                  <div className="project-hero__turn-meta">
+                    <span>{turn.workedFor.replace(/^worked/, 'Worked')}</span>
+                    <span>{String(index + 1).padStart(2, '0')}</span>
+                  </div>
+                  <div className="project-hero__response">
+                    <strong>Codex</strong>
+                    <div className="chat-markdown">
+                      <ReactMarkdown
+                        components={responseMarkdownComponents}
+                        remarkPlugins={[remarkGfm]}
+                        skipHtml
+                      >
+                        {turn.codex}
+                      </ReactMarkdown>
+                    </div>
                   </div>
                 </div>
-              </div>
-            ))}
+              )
+            })}
           </article>
         ))}
       </div>

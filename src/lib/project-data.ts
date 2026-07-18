@@ -61,7 +61,6 @@ export async function listProjectsPage({
   limit?: number
   queryText?: string
 } = {}): Promise<ProjectPage> {
-  noStore()
   const safeLimit = Math.max(1, Math.min(limit, 100))
   const decoded = decodeCursor(cursor)
   const db = getDatabase()
@@ -90,8 +89,6 @@ export async function listProjectsPage({
       media: projectsTable.media,
       heroImageUrl: projectsTable.heroImageUrl,
       metrics: projectsTable.metrics,
-      artifact: projectsTable.artifact,
-      projectMarkdown: projectsTable.projectMarkdown,
       storyThreadCount: projectsTable.storyThreadCount,
       storyTurnCount: projectsTable.storyTurnCount,
       storyExcerpt: projectsTable.storyExcerpt,
@@ -133,8 +130,6 @@ export async function listProjectsPage({
 }
 
 export async function getProject(slug: string): Promise<Project | null> {
-  noStore()
-
   const row = await getDatabase().query.projects.findFirst({
     where: and(eq(projectsTable.slug, slug), eq(projectsTable.published, true)),
   })
@@ -551,7 +546,12 @@ export async function isOwnedMediaObject({
   return rows.length > 0
 }
 
-function projectFromRow(row: ProjectRow): Project {
+type DisplayProjectRow = Omit<ProjectRow, 'artifact' | 'projectMarkdown'> & {
+  artifact?: ProjectRow['artifact']
+  projectMarkdown?: ProjectRow['projectMarkdown']
+}
+
+function projectFromRow(row: DisplayProjectRow): Project {
   const threads = coerceThreads(row.storyExcerpt)
   const history = threads.flatMap((thread) => thread.turns)
 
@@ -565,10 +565,10 @@ function projectFromRow(row: ProjectRow): Project {
     category: row.category,
     cardAnimation: normalizeCardAnimation(row.cardAnimation),
     status: statusFromDatabase[row.status] ?? 'New',
-    body: row.artifact
-      ? normalizeArtifact(row.artifact as ProjectArtifact).post.body
-      : [],
-    projectMarkdown: publicMarkdown(row.projectMarkdown, row.description),
+    body: [],
+    projectMarkdown: row.projectMarkdown
+      ? publicMarkdown(row.projectMarkdown, row.description)
+      : undefined,
     stack: row.stack,
     links: coerceLinks(row.links),
     media: coerceMedia(row.media),

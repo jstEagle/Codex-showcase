@@ -5,6 +5,8 @@ import { HomeExperience } from '../../../components/HomeExperience'
 import { appConfig } from '../../../config/app'
 import { getProject, listProjectsPage } from '../../../lib/project-data'
 
+export const dynamic = 'force-dynamic'
+
 export async function generateMetadata({
   params,
 }: {

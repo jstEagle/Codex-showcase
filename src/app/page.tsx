@@ -4,6 +4,8 @@ import { HomeExperience } from '../components/HomeExperience'
 import { appConfig } from '../config/app'
 import { listProjectsPage } from '../lib/project-data'
 
+export const dynamic = 'force-dynamic'
+
 export const metadata: Metadata = {
   title: { absolute: appConfig.name },
   description: appConfig.description,

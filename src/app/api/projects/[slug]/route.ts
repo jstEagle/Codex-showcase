@@ -23,7 +23,16 @@ export async function GET(
     return NextResponse.json({ error: 'Project not found' }, { status: 404 })
   }
 
-  return NextResponse.json({ project })
+  return NextResponse.json(
+    { project },
+    {
+      headers: {
+        'Cache-Control': 'public, max-age=30, stale-while-revalidate=120',
+        'Cloudflare-CDN-Cache-Control':
+          'public, max-age=60, stale-while-revalidate=300',
+      },
+    },
+  )
 }
 
 export async function PATCH(

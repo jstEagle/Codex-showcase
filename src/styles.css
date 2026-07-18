@@ -833,7 +833,9 @@ a {
 
 .project-hero__prompt {
   display: flex;
-  justify-content: flex-end;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 8px;
 }
 
 .project-hero__prompt p {
@@ -844,6 +846,37 @@ a {
   padding: 15px 18px;
   font-size: 15px;
   line-height: 1.55;
+}
+
+.project-hero__mentions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: 6px;
+  max-width: min(680px, 84%);
+}
+
+.project-hero__mention {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  border: 1px solid var(--line-strong);
+  border-radius: 999px;
+  background: #fff;
+  padding: 4px 10px 4px 8px;
+  color: var(--dim);
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.project-hero__mention svg {
+  flex-shrink: 0;
+}
+
+.project-hero__mention-kind {
+  color: var(--muted);
 }
 
 .project-hero__turn-meta {
